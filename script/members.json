@@ -1,0 +1,32 @@
+[
+    {
+        "avatar": "images/Candy Mascot.png",
+        "name": "✨ Candy ✨",
+        "role": "⚡ Warrior ⚡",
+        "stats": {
+            "create": 88,
+            "code": 85,
+            "design": 75
+        }
+    },
+    {
+        "avatar": "images/Muna Mascot.png",
+        "name": "✨ Mun ✨",
+        "role": "🧙‍♀️ Mage 🧙‍♀️",
+        "stats": {
+            "create": 67,
+            "code": 74,
+            "design": 99
+        }
+    },
+    {
+        "avatar": "images/Tree Mascot.jpeg",
+        "name": "🌲 Tree, the Lumbering Giant 🌲",
+        "role": "🍃 Druid/Barbarian 🪓",
+        "stats": {
+            "create": 53,
+            "code": 87,
+            "design": 25
+        }
+    }
+]

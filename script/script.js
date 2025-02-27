@@ -2,23 +2,23 @@ window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     const scrolled = window.scrollY;
     const maxScroll = window.innerHeight * 0.5;
-    
+
     if (scrolled > 0) {
         header.classList.add('scrolled');
         const progress = Math.min(scrolled / maxScroll, 1);
-        
+
         const logo = header.querySelector('.logo');
         const aurora = header.querySelector('.aurora');
-        
+
         logo.style.transform = `
             scale(${1 - progress * 0.2}) 
             translateY(${progress * 20}px) 
             rotate(${progress * 5}deg)
         `;
-        
+
         aurora.style.opacity = 1 - progress;
         aurora.style.transform = `scale(${1 + progress * 0.3})`;
-        
+
         header.style.opacity = 1 - (progress * 0.2);
     } else {
         header.classList.remove('scrolled');
@@ -56,7 +56,7 @@ setInterval(() => {
     star.style.top = Math.random() * 100 + '%';
     star.style.left = Math.random() * 100 + '%';
     header.appendChild(star);
-    
+
     setTimeout(() => star.remove(), 4000);
 }, 2000);
 
@@ -103,29 +103,72 @@ document.addEventListener('click', (e) => {
     }
 });
 
-document.querySelectorAll('.member-card').forEach(card => {
-    card.addEventListener('mousemove', e => {
-        const rect = card.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
-        
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const angleX = (y - centerY) / 20;
-        const angleY = (centerX - x) / 20;
-        
-        card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.05, 1.05, 1.05)`;
-        card.querySelector('.member-info').style.transform = `translateZ(40px)`;
-    });
+function createCard(avatarSrc, name, role, stat) {
+    let card = document.createElement('div');
+    card.className = 'member-card';
 
-    card.addEventListener('mouseleave', () => {
-        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
-        card.querySelector('.member-info').style.transform = 'translateZ(0)';
-    });
+    let avatar = document.createElement('div');
+    avatar.className = 'member-avatar';
+    avatar.style.backgroundImage = `url('${avatarSrc}')`;
 
-    card.addEventListener('mouseenter', () => {
-        card.style.transition = '0.1s transform ease';
-        card.querySelector('.member-info').style.transition = '0.1s transform ease';
+    let info = document.createElement('div');
+    info.className = 'member-info';
+    info.innerHTML = `
+    <h3 class="member-name">${name}</h3>
+    <p class="member-role">${role}</p>
+    <div class="member-stats">
+        <div class="stat">
+            <div class="stat-value">${stat[0]}</div>
+            <div class="stat-label">Create</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">${stat[1]}</div>
+            <div class="stat-label">Code</div>
+        </div>
+        <div class="stat">
+            <div class="stat-value">${stat[2]}</div>
+            <div class="stat-label">Design</div>
+        </div>
+    </div>`
+    card.appendChild(avatar);
+    card.appendChild(info);
+    return card;
+}
+
+let memberContainer = document.querySelector('.members-grid');
+fetch('script/members.json')
+    .then(response => response.json())
+    .then(members => {
+        members.forEach(member => {
+            const stat = [member.stats.create, member.stats.code, member.stats.design];
+            const card = createCard(member.avatar, member.name, member.role, stat);
+            memberContainer.appendChild(card);
+        });
+        
+        document.querySelectorAll('.member-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const angleX = (y - centerY) / 20;
+                const angleY = (centerX - x) / 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale3d(1.05, 1.05, 1.05)`;
+                card.querySelector('.member-info').style.transform = `translateZ(40px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale3d(1, 1, 1)';
+                card.querySelector('.member-info').style.transform = 'translateZ(0)';
+            });
+
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = '0.1s transform ease';
+                card.querySelector('.member-info').style.transition = '0.1s transform ease';
+            });
+        });
     });
-});
