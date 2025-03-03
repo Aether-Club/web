@@ -585,6 +585,45 @@ section {
     letter-spacing: 1px;
 }
 
+#donate-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    margin-top: 2rem;
+}
+
+#donate-container button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #b76be9, #d6a3ec);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    margin-top: 16px;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#donate-container button:hover {
+    padding: 0.9rem 1.6rem;
+}
+
+#donate-container img {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    transition: transform 0.3s ease;
+}
+
+#donate-container img:hover {
+    transform: translateY(-5px);
+}
+
 .member-card:hover {
     transform: perspective(1000px) rotateY(10deg) scale(1.02);
 }

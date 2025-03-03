@@ -1,3 +1,7 @@
+function redirect(link) {
+    window.open(link, '_blank');
+}
+
 window.addEventListener('scroll', () => {
     const header = document.querySelector('.header');
     const scrolled = window.scrollY;
@@ -170,5 +174,63 @@ fetch('script/members.json')
                 card.style.transition = '0.1s transform ease';
                 card.querySelector('.member-info').style.transition = '0.1s transform ease';
             });
+        });
+    });
+
+function createEvent(date, title, description) {
+    let event = document.createElement('div');
+    event.className = 'event-card';
+
+    let eventDate = document.createElement('div');
+    eventDate.className = 'event-date';
+    eventDate.innerHTML = date;
+
+    let eventInfo = document.createElement('div');
+    eventInfo.innerHTML = `
+    <h3>${title}</h3>
+    <p>${description}</p>`;
+
+    event.appendChild(eventDate);
+    event.appendChild(eventInfo);
+    return event;
+}
+
+// quit, it works i guess
+function getClosestEvents(currentDate, events) {
+    let closestEvents = [];
+
+    closestEvents = events.filter(event => {
+        const eventDate = event.statedDate;
+        const eventTimestamp = eventDate[2] * 10000 + eventDate[1] * 100 + eventDate[0];
+        const currentTimestamp = currentDate[2] * 10000 + currentDate[1] * 100 + currentDate[0];
+        
+        return eventTimestamp >= currentTimestamp;
+    });
+
+    closestEvents.sort((a, b) => {
+        const dateA = a.statedDate;
+        const dateB = b.statedDate;
+        
+        if (dateA[2] !== dateB[2]) return dateA[2] - dateB[2];
+        if (dateA[1] !== dateB[1]) return dateA[1] - dateB[1];
+        return dateA[0] - dateB[0];
+    });
+
+    return closestEvents;
+}
+
+let eventContainer = document.querySelector('.event-cards');
+fetch('script/events.json')
+    .then(response => response.json())
+    .then(events => {
+        const now = new Date();
+        const date = [now.getDate(), now.getMonth() + 1, now.getFullYear()];
+
+        const closestEvents = getClosestEvents(date, events);
+        console.log(closestEvents);
+        
+        closestEvents.forEach(event => {
+            const card = createEvent(event.date, event.name, event.description);
+            eventContainer.appendChild(card);
         });
     });

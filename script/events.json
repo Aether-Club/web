@@ -1,0 +1,14 @@
+[
+    {
+        "name": "Pixel Art Workshop!",
+        "date": "MARCH 8",
+        "description": "Online pixelart workshop by Muna, be sure to get your art-sy skills going!",
+        "statedDate": [8, 3, 2025]
+    },
+    {
+        "name": "Coding 101",
+        "date": "MARCH 9",
+        "description": "General coding tutorial; for anyone that wants to get started! (Offline)",
+        "statedDate": [9, 3, 2025]
+    }
+]
