@@ -21,12 +21,22 @@
     },
     {
         "avatar": "images/Tree Mascot.jpeg",
-        "name": "🌲 Tree, the Lumbering Giant 🌲",
+        "name": "🌲 Tree 🌲",
         "role": "🍃 Druid/Barbarian 🪓",
         "stats": {
             "create": 53,
             "code": 87,
             "design": 25
+        }
+    },
+    {
+        "avatar": "images/junkek mascot.jpg",
+        "name": "📡 Junkek 📡",
+        "role": "⌛️ HACKER ⏳",
+        "stats": {
+            "create": 99,
+            "code": 99,
+            "design": 99
         }
     }
 ]
