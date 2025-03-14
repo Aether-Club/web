@@ -17,6 +17,23 @@ body {
     font-family: "DM Mono", system-ui, -apple-system, sans-serif;
 }
 
+button {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.6rem;
+    background: linear-gradient(135deg, #b76be9, #d6a3ec);
+    color: white;
+    border: none;
+    padding: 0.8rem 1.5rem;
+    margin-top: 16px;
+    border-radius: 26px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    padding: 0.9rem 1.6rem;
+}
+
 .header {
     height: 80vh;
     background: linear-gradient(135deg,
@@ -591,23 +608,6 @@ section {
     align-items: center;
     gap: 3rem;
     margin-top: 2rem;
-}
-
-#donate-container button {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 1.6rem;
-    background: linear-gradient(135deg, #b76be9, #d6a3ec);
-    color: white;
-    border: none;
-    padding: 0.8rem 1.5rem;
-    margin-top: 16px;
-    border-radius: 26px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-#donate-container button:hover {
-    padding: 0.9rem 1.6rem;
 }
 
 #donate-container img {
