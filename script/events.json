@@ -18,15 +18,15 @@
         "statedDate": [16, 3, 2025]
     },
     {
-        "name": "Hardware Week",
+        "name": "Campaigning Week",
         "date": "MARCH 22-23",
-        "description": "We're gonna play with hardware! (Offline)",
+        "description": "For the ones that are going for MTP!",
         "statedDate": [22, 3, 2025]
     },
     {
         "name": "PCB-ing",
-        "date": "MARCH 23",
+        "date": "MARCH 30",
         "description": "Hop on and we're gonna make some PCBs!",
-        "statedDate": [23, 3, 2025]
+        "statedDate": [30, 3, 2025]
     }
 ]
