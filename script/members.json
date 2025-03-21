@@ -38,5 +38,15 @@
             "code": 99,
             "design": 99
         }
+    },
+    {
+        "avatar": "images/random mascot.svg",
+        "name": "random",
+        "role": "error 404",
+        "stats": {
+            "create": 0,
+            "code": 0,
+            "design": 0
+        }
     }
 ]
