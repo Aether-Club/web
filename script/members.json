@@ -40,6 +40,16 @@
         }
     },
     {
+        "avatar": "images/goos_1248__.png",
+        "name": "🌈 1248 🌈",
+        "role": "</> who said you cant exceed 100 🔥",
+        "stats": {
+            "create": 62.5,
+            "code": 1248.1248,
+            "design": 48
+        }
+    },
+    {
         "avatar": "images/random mascot.svg",
         "name": "random",
         "role": "error 404",
