@@ -28,5 +28,23 @@
         "date": "MARCH 30",
         "description": "Hop on and we're gonna make some PCBs!",
         "statedDate": [30, 3, 2025]
+    },
+    {
+        "name": "Jetsu - AI Robots",
+        "date": "TBD",
+        "description": "Making cool AI robots for the Jetsu event!",
+        "statedDate": [31, 12, 2025]
+    },
+    {
+        "name": "Monthly Hacks #1",
+        "date": "APRIL 13",
+        "description": "We're going to make stickers with Figma! Inspired by Anchor.",
+        "statedDate": [13, 4, 2025]
+    },
+    {
+        "name": "Boba Day",
+        "date": "APRIL 20",
+        "description": "Concluding the boba drops workshop <3",
+        "statedDate": [20, 4, 2025]
     }
 ]
