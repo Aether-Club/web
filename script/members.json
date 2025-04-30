@@ -58,5 +58,15 @@
             "code": 0,
             "design": 0
         }
+    },
+    {
+        "avatar": "images/Violetz.png",
+        "name": "Violetz",
+        "role": "Spectator",
+        "stats": {
+            "create": 50,
+            "code": 30,
+            "design": 50
+        }
     }
 ]
